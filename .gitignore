@@ -1,1 +1,6 @@
 env
+__pycache__
+*.egg-info
+*.pem
+.DS_Store
+*.ini
