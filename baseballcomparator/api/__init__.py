@@ -1,1 +1,1 @@
-from baseballcomparator.api.routes import show_routes
+from baseballcomparator.api.routes import show_routes, fetch_one_player
