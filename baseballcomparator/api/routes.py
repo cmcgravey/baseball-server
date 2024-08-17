@@ -20,4 +20,5 @@ def fetch_one_player():
     )
 
     record = curs.fetchone()
+    print(record)
     return flask.jsonify(**record), 200
