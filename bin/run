@@ -9,4 +9,4 @@ set -e
 
 set -x
 
-flask --app baseballcomparator --debug run --host 0.0.0.0 --port 443
+flask --app baseballcomparator --debug run --host 0.0.0.0 --port 8000
