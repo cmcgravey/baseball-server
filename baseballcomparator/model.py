@@ -31,3 +31,4 @@ def connect(config):
 def cursor_factory(conn):
     """Allow for cursor to return entries as dictionaries."""
     curs = conn.cursor(cursor_factory=extras.RealDictCursor)
+    return curs
