@@ -1,4 +1,5 @@
 import flask
+import psycopg2
 import baseballcomparator
 
 @baseballcomparator.app.route('/')
@@ -13,7 +14,7 @@ def fetch_one_player():
     config = baseballcomparator.model.load_config()
     conn = baseballcomparator.model.connect(config)
 
-    curs = conn.cursor()
+    curs = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
     curs.execute(
         "SELECT * FROM players;"
