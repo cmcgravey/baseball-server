@@ -4,3 +4,7 @@ __pycache__
 *.pem
 .DS_Store
 *.ini
+node_modules
+session.json
+bundle.js
+*.js.map
