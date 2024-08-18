@@ -12,9 +12,7 @@ def show_routes():
 @baseballcomparator.app.route('/players/')
 def fetch_one_player():
     config = baseballcomparator.model.load_config()
-    conn = baseballcomparator.model.connect(config)
-
-    curs = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    curs = baseballcomparator.model.connect(config)
 
     curs.execute(
         "SELECT * FROM players;"

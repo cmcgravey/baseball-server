@@ -1,6 +1,7 @@
 import flask
 import psycopg2
 from configparser import ConfigParser
+from psycopg2 import extras
 
 def load_config(filename='database.ini', section='postgresql'):
     parser = ConfigParser()
@@ -22,6 +23,11 @@ def connect(config):
     try:
         # connecting to the PostgreSQL server
         with psycopg2.connect(**config) as conn:
-            return conn
+            cursor = cursor_factory(conn)
+            return cursor
     except (psycopg2.DatabaseError, Exception) as error:
         print(error)
+
+def cursor_factory(conn):
+    """Allow for cursor to return entries as dictionaries."""
+    curs = conn.cursor(cursor_factory=extras.RealDictCursor)
